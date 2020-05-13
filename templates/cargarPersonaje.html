@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>Personajes</title>
+<link rel="stylesheet" type="text/css" href="../static/style.css" media="screen" />
+</head>
+
+<body style="background-color: white;">
+    <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: transparent;border-radius: 20px 20px 20px 20px;">
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:8%;">
+            <a style="color: black;text-decoration: none;" href="/">Inicio</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:12%;">
+            <a style="color: black;text-decoration: none;" href="/casaMarvel">Casa Marvel</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:10%;">
+            <a style="color: black;text-decoration: none;" href="/casaDC">Casa DC</a>
+        </li>
+     </ul>
+     <h3 style="text-align:center">Nuevo personaje</h3>
+    <div style="font-size: 14px;display:block;margin:auto;border: black 2px solid;width: 400px;height: 500px;padding: 10px;">
+        
+        <form action="altaPersonaje" method="POST">
+            <p style="height: 18px;"><input style="width: 100%;" type="text" name="name" placeholder="Nombre del personaje: "></p>
+            <p style="height: 18px;"><input style="width: 100%;" type="text" name="character" placeholder="Nombre de la persona: "></p>
+            <p style="height: 18px;">
+                <input type="text" name="year" placeholder="Año de aparición:">
+            </p>
+            <p style="height: 15px;">Casa:
+            <select style= "background-color: transparent;" name="house">
+                <option value="MARVEL">Marvel Comics</option>
+                <option value="DC">DC Comics</option>
+              </select>
+            </p>
+            <p style="height: 55px;">Biografía:<br>
+            <textarea style="width: 100%;" name="biography"></textarea>
+            </p>
+            <p style="height: 55px;">Equipamiento: <br>
+                <textarea style="width: 100%;" name="equipment"></textarea>
+            </p>
+            <p style="height: 8px;padding-top: 5px;">URLs imágenes:</p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="img1"></p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="img2"></p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="img3"></p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="img4"></p>
+            
+            <p style="margin-top: 30px;"><input style="display:block;margin:auto;background-color: black;color: white;border-radius: 10px;" type="submit" value="Enviar la información"></p>
+            
+        </form>
+    </div>
+</body>
+</html>

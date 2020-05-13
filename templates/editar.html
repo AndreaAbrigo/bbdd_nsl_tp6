@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>Personajes</title>
+<link rel="stylesheet" type="text/css" href="../static/style.css" media="screen" />
+</head>
+
+<body style="background-color: white;">
+    <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: transparent;border-radius: 20px 20px 20px 20px;">
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:8%;">
+            <a style="color: black;text-decoration: none;" href="/">Inicio</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:12%;">
+            <a style="color: black;text-decoration: none;" href="/casaMarvel">Casa Marvel</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:10%;">
+            <a style="color: black;text-decoration: none;" href="/casaDC">Casa DC</a>
+        </li>
+     </ul>
+     <h3 style="text-align:center">Modidicación de los datos de {{nombre}} </h3>
+     <h6 style="text-align:center">Ingrese datos solo en los campos que desea modificar</h6>
+    <div style="font-size: 14px;display:block;margin:auto;border: black 2px solid;width: 400px;height: 500px;padding: 10px;">
+        
+        <form action="modificar" method="POST">
+            <p style="height: 18px;"><input style="width: 100%;" type="text" name="nuevoName" placeholder="Nombre del personaje: "></p>
+            <p style="height: 18px;"><input style="width: 100%;" type="text" name="nuevoCharacter" placeholder="Nombre de la persona: "></p>
+            <p style="height: 18px;">
+                <input type="text" name="nuevoYear" placeholder="Año de aparición:">
+            </p>
+            <p style="height: 15px;">Casa:
+            <select style= "background-color: transparent;" name="nuevoHouse">
+                <option value="MARVEL">Marvel Comics</option>
+                <option value="DC">DC Comics</option>
+              </select>
+            </p>
+            <p style="height: 55px;">Biografía:<br>
+            <textarea style="width: 100%;" name="nuevoBiography"></textarea>
+            </p>
+            <p style="height: 55px;">Equipamiento: <br>
+                <textarea style="width: 100%;" name="nuevoEquipment"></textarea>
+            </p>
+            <p style="height: 8px;padding-top: 5px;">URLs imágenes:</p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="nuevoImg1"></p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="nuevoImg2"></p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="nuevoImg3"></p>
+                <p style="height: 15px;"><input style="width: 100%;" type="text" name="nuevoImg4"></p>
+            <input value="{{nombre}}" type="hidden" class="form-control" name="name" id="name">
+            <p style="margin-top: 30px;"><input style="display:block;margin:auto;background-color: black;color: white;border-radius: 10px;" type="submit" value="Guardar modificaciones"></p>
+            
+        </form>
+    </div>
+</body>
+</html>

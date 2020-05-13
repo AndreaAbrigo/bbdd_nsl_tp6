@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>Personajes</title>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" media="screen" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color: white;">
+
+    <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: transparent;border-radius: 20px 20px 20px 20px;">
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:8%;">
+            <a style="color: black;text-decoration: none;" href="/">Inicio</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:12%;">
+            <a style="color: black;text-decoration: none;" href="/casaMarvel">Casa Marvel</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:10%;">
+            <a style="color: black;text-decoration: none;" href="/casaDC">Casa DC</a>
+        </li>
+        <li style="float: left;font-size: 20px;text-decoration: none;padding: 20px; width:10%;">
+            <a style="color: black;text-decoration: none;" href="/nuevoPersonaje">Nuevo</a>
+        </li>
+     </ul>
+
+     <div style="text-align: center;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSabJqCdbF5Uz7IKIJAyFPxq95EAsy5LVjsro8R9meaviolMowT&usqp=CAU" style="text-align: center;" height="120">
+    </div>
+
+    <section class="details-card">
+        <div class="container">
+            <div class="row">
+                {% for dato in datos %}
+                <div style="padding-bottom: 20px;" class="col-md-4">
+                    <div class="card-content" style="border: black 2px solid;border-radius: 20px 20px 20px 20px;padding: 10px;">
+                        <div class="card-img" style="text-align: center;">
+                            <img src="{% print(dato['images'][0])%}" style="border-radius: 20px 20px 20px 20px" width="150" height="200" alt="">
+                        </div>
+                        <div class="card-desc">
+                            <h3 style="text-align: center;">{% print(dato['name'])%}</h3>
+                            <p style="font-size: 12px; overflow:hidden;white-space:nowrap;text-overflow: ellipsis;">{% print(dato['biography'])%}</p>
+                            <form action="verinfo" method="POST">
+                                <div class="form-group">
+                                <input value="{{dato['name']}}" type="hidden" class="form-control" name="name" id="name">
+                                <button style="display:block;margin:auto;background-color: black;color: white;border-radius: 10px;" type="submit">Más información</button>
+                                </div>
+                            </form>
+                            <div style=" display: flex;justify-content: center;" class="btn-group">
+                                <form action="editar" method="POST">
+                                    <input value="{{dato['name']}}" type="hidden" class="form-control" name="name" id="name">
+                                    <button style="border:transparent; background-color: transparent;font-size: 30px;" type="submit"><i class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                                </form>
+                                <form action="eliminar" method="POST">
+                                    <input value="{{dato['name']}}" type="hidden" class="form-control" name="name" id="name">
+                                    <button style="border:transparent; background-color: transparent;font-size: 30px;" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+</body>
+</html>
